@@ -1,0 +1,47 @@
+{% extends 'store/main.html' %}
+
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+{% block main-content %}
+ <div class="container  m-3">
+    <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+        <h4>Myshop Bottom Wear</h4>
+            {% for b in bottomwears %}
+            <a href="{% url 'product-detail' b.id %}">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ b.product_image.url }}" height="300px" class="card-img-top" alt="{{b.title}}">
+                    <div class="card-body">
+                    <h5 class="card-title">{{b.title}}</h5>
+                    <p class="card-text">{{b.discounted_price}}</p>
+                    {% comment %} <a href="{% url 'add-to-cart' %}" class="btn btn-primary">Add To Cart</a> {% endcomment %}
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="container  m-3">
+    <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+        <h4>Myshop Top Wear </h4>
+            {% for t in topwears %}
+            <a href="{% url 'product-detail' t.id %}">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ t.product_image.url }}" height="300px" class="card-img-top" alt="{{t.title}}">
+                    <div class="card-body">
+                    <h5 class="card-title">{{t.title}}</h5>
+                    <p class="card-text">{{t.discounted_price}}</p>
+                    {% comment %} <a href="{% url 'add-to-cart' %}" class="btn btn-primary">Add To Cart</a> {% endcomment %}
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock main-content %} 
